@@ -3,25 +3,12 @@ package actAsociacion;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Socio {
-	/*
-	 * Realizar un menú de opciones para llevar el mantenimiento de una asociación
-	 * de forma que de cada socio los datos son: un ID, un nombre y una fecha de
-	 * nacimiento. El ID es el campo clave y no se puede repetir, de tipo numérico.
-	 * Además, se desea conocer cuál es el número de socios que tiene la asociación.
-	 * Las operaciones que se van a realizar son: - Alta de socio (comprobar que el
-	 * ID sea único) - Eliminación de socio (solicita el ID que quiera eliminar) -
-	 * Consultar el nº de socios existentes - Consultar los datos de un socio en
-	 * concreto (solicita ID) - Modificar la fecha de nacimiento (solicita ID) -
-	 * Listado ordenado por ID (criterio de ordenación natural) - Listado ordenado
-	 * por la edad y en caso de la misma edad, se ordenará por el nombre del socio -
-	 * Salir
-	 */
+public class Socio implements Comparable<Object> {
 
-	static Integer ID = 0;
-	String nombreString;
+	Integer ID = 0, ultID = 0;
+	String nombre;
 	LocalDate fechaNacimiento;
-	ConjuntoSocio tabla = new ConjuntoSocio();
+	Integer max;
 
 	public Socio() {
 		// TODO Auto-generated constructor stub
@@ -29,47 +16,52 @@ public class Socio {
 
 	public Socio(String nombre, String fechaNacimiento) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		ID++;
-		this.nombreString = nombre;
+		this.ID = ultID + 1;
+		this.nombre = nombre;
 		this.fechaNacimiento = LocalDate.parse(fechaNacimiento, formatter);
-
-	}
-
-	public void alta(Object ob) {
-		Socio socio = (Socio) ob;
-		tabla.nuevoSocio(socio);
 
 	}
 
 	// GETTERS AND SETTERS
 
-	public static Integer getID() {
+	public Integer getID() {
 		return ID;
 	}
 
-	public static void setID(Integer iD) {
+	public void setID(Integer iD) {
 		ID = iD;
 	}
 
-	public String getNombreString() {
-		return nombreString;
+	public String getnombre() {
+		return nombre;
 	}
 
-	public void setNombreString(String nombreString) {
-		this.nombreString = nombreString;
+	public void setnombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(LocalDate fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+	public void setFechaNacimiento(String fechaNacimiento) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		this.fechaNacimiento = LocalDate.parse(fechaNacimiento, formatter);
+	}
+
+	public Integer getEdad() {
+		return LocalDate.now().getYear() - fechaNacimiento.getYear();
 	}
 
 	@Override
 	public String toString() {
-		return "Socio [nombreString=" + nombreString + ", fechaNacimiento=" + fechaNacimiento + "]";
+		return "Socio ID: " + this.ID + " nombre: " + nombre + ", fechaNacimiento: " + fechaNacimiento;
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return this.getID() - ((Socio) o).getID();
 	}
 
 }

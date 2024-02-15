@@ -21,7 +21,8 @@ public class Ppal {
 		Scanner sc = new Scanner(System.in);
 		Socio socio;
 		String nombre, fechaNacimiento;
-		Integer op;
+		Integer op, ID;
+		ConjuntoSocio tabla = new ConjuntoSocio();
 
 		do {
 			System.out.println(
@@ -35,17 +36,24 @@ public class Ppal {
 				System.out.println("Introduzca la fecha de nacimiento del socio (el formato es dd-MM-aaa):");
 				fechaNacimiento = sc.next();
 				socio = new Socio(nombre, fechaNacimiento);
-				socio.alta(socio);
-				System.out.println(socio.toString());
+				tabla.nuevoSocio(socio);
+				System.out.println(tabla.toString());
 				break;
+
 			case 2:
-
+				System.out.println("Introduzca el ID del socio que desea eliminar: ");
+				ID = sc.nextInt();
+				tabla.eliminaSocio(ID);
+				System.out.println(tabla.toString());
 				break;
-			case 3:
 
+			case 3:
+				System.out.println(tabla.max());
 				break;
 			case 4:
-
+				System.out.println("Introduzca el ID del socio que desea consultar:");
+				ID = sc.nextInt();
+				tabla.verSocio(ID);
 				break;
 			case 5:
 
