@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Llamada implements Comparable<Object> {
-	final Double[] precios = { 0.06, 0.05, 0.3, 0.02, 0.03 };
 
 	Tarifas tarifa;
 	String telfCliente, telfInterlocutor;
@@ -41,21 +40,25 @@ public class Llamada implements Comparable<Object> {
 		}
 	}
 
-	// fecha y hora del inicio
 	// coste si la llamada es saliente
 	public Double costeLlamada(Llamada o) {
+		Double precio = 0.0;
 		if (o.getSaliente()) {
-			for (int i = 0; i < precios.length; i++) {
-				
+			if (this.getTarifa().equals(Tarifas.SEVILLA)) {
+				precio = 0.06 * getCantMinutos();
+			} else if (this.getTarifa().equals(Tarifas.CADIZ)) {
+				precio = 0.05 * getCantMinutos();
+			} else if (this.getTarifa().equals(Tarifas.GRANADA)) {
+				precio = 0.03 * getCantMinutos();
+			} else if (this.getTarifa().equals(Tarifas.HUELVA) || this.getTarifa().equals(Tarifas.JAEN)) {
+				precio = 0.02 * getCantMinutos();
 			}
-
 		}
-		return 0.0;
+		return precio;
 	}
 
 	// GETTERS AND SETTERS
 	// duracion en minutos de la llamada
-
 	public Tarifas getTarifa() {
 		return tarifa;
 	}
@@ -117,8 +120,12 @@ public class Llamada implements Comparable<Object> {
 		this.fin = fin;
 	}
 
-	public Double[] getPrecios() {
-		return precios;
+	// IMPRIME
+	@Override
+	public String toString() {
+		return "Llamada [tarifa=" + tarifa + ", telfCliente=" + telfCliente + ", telfInterlocutor=" + telfInterlocutor
+				+ ", saliente=" + saliente + ", fechaLlamada=" + fechaLlamada + ", inicio=" + inicio + ", fin=" + fin
+				+ "]";
 	}
 
 }
