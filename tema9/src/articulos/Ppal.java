@@ -14,7 +14,7 @@ public class Ppal {
 
 		do {
 			System.out.println("Introduzca qué opción desea realizar:\n 1.Alta artículo.\n 2.baja artículo."
-					+ "\n 3.Modificar precio de venta de un artículo concreto.\n 5.Entrada de mercancía.\n 6.Salida de mercancía.\n 7.Listar\n8.Listar ordenado\n9.Salir");
+					+ "\n 3.Modificar precio de venta de un artículo concreto.\n 4.Entrada de mercancía.\n 5.Salida de mercancía.\n 6.Listar\n 7.Listar ordenado\n 8.Salir");
 			op = sc.nextInt();
 			switch (op) {
 			case 1:
@@ -22,8 +22,6 @@ public class Ppal {
 				descripcion = sc.next();
 				System.out.println("Introduzca el precio de compra del artículo:");
 				precioCompra = sc.nextDouble();
-				System.out.println("Introduzca el precio de venta del artículo:");
-				precioVenta = sc.nextDouble();
 				System.out.println("Introduzca el precio de venta del artículo:");
 				precioVenta = sc.nextDouble();
 				System.out.println("Introduzca el stock del artículo:");
@@ -34,28 +32,28 @@ public class Ppal {
 				break;
 
 			case 2:
-				System.out.println("Introduzca el ID del Articulo que desea eliminar: ");
+				System.out.println("Introduzca el código del Articulo que desea eliminar: ");
 				codigo = sc.nextInt();
 				conjuntoArticulo.baja(codigo);
 				System.out.println(conjuntoArticulo.toString());
 				break;
 
 			case 3:
-				System.out.println("Introduzca el codigo del Artículo que desea modificar:");
+				System.out.println("Introduzca el código del Artículo que desea modificar:");
 				codigo = sc.nextInt();
 				System.out.println("Introduzca el nuevo precio del Artículo que desea modificar:");
 				precioVenta = sc.nextDouble();
 				conjuntoArticulo.modifica(codigo, precioVenta);
 				break;
 			case 4:
-				System.out.println("Introduzca el codigo del artículo");
+				System.out.println("Introduzca el código del artículo");
 				codigo = sc.nextInt();
 				System.out.println("Introduzca la cantidad de mercanciía: ");
 				cantidad = sc.nextInt();
 				conjuntoArticulo.entradaMercancia(codigo, cantidad);
 				break;
 			case 5:
-				System.out.println("Introduzca el codigo del artículo");
+				System.out.println("Introduzca el código del artículo");
 				codigo = sc.nextInt();
 				System.out.println("Introduzca la cantidad de mercanciía: ");
 				cantidad = sc.nextInt();
@@ -67,15 +65,11 @@ public class Ppal {
 				break;
 
 			case 7:
-				System.out.println(conjuntoArticulo.toString());
-				break;
-
-			case 8:
 				conjuntoArticulo.ordenaPorCodigo();
 				break;
 			}
 
-		} while (op != 9);
+		} while (op != 8);
 
 		sc.close();
 	}

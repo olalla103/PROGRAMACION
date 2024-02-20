@@ -8,7 +8,7 @@ public class Articulo implements Comparable<Object> {
 	Integer stock;
 
 	public Articulo(String descripcion, Double precioCompra, Double precioVenta, Integer stock) {
-		codigo = cont + 1;
+		codigo = cont++;
 		this.descripcion = descripcion;
 		this.precioCompra = precioCompra;
 		this.precioVenta = precioVenta;

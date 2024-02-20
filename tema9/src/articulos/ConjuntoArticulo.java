@@ -8,7 +8,6 @@ public class ConjuntoArticulo {
 	public void alta(Articulo articulo) {
 		conjuntoArticulos = Arrays.copyOf(conjuntoArticulos, conjuntoArticulos.length + 1);
 		conjuntoArticulos[conjuntoArticulos.length - 1] = articulo;
-		System.out.println(conjuntoArticulos.toString());
 
 	}
 
@@ -22,7 +21,6 @@ public class ConjuntoArticulo {
 				Articulo.cont--;
 			}
 		}
-		System.out.println(conjuntoArticulos.toString());
 
 	}
 
@@ -34,18 +32,20 @@ public class ConjuntoArticulo {
 				flag = true;
 			}
 		}
-		System.out.println(conjuntoArticulos.toString());
 	}
 
 	public void entradaMercancia(Integer codigo, Integer cant) {
 		boolean flag = false;
+		Integer pos = 0, cantTotal;
 		for (int i = 0; i < conjuntoArticulos.length && !flag; i++) {
 			if (conjuntoArticulos[i].getCodigo().equals(codigo)) {
-				conjuntoArticulos[i].setStock(conjuntoArticulos[i].stock + cant);
+				pos = i;
 				flag = true;
 			}
 		}
-		System.out.println(conjuntoArticulos.toString());
+		cantTotal = conjuntoArticulos[pos].getStock() + cant;
+		conjuntoArticulos[pos].setStock(cantTotal);
+		System.out.println(conjuntoArticulos[pos].getStock());
 
 	}
 
@@ -57,17 +57,15 @@ public class ConjuntoArticulo {
 				flag = true;
 			}
 		}
-		System.out.println(conjuntoArticulos.toString());
 	}
 
 	public void ordenaPorCodigo() {
 		Arrays.sort(conjuntoArticulos);
-		System.out.println(conjuntoArticulos.toString());
 	}
 
 	@Override
 	public String toString() {
-		return Arrays.toString(conjuntoArticulos);
+		return "ConjuntoArticulo [conjuntoArticulos=" + Arrays.toString(conjuntoArticulos) + "]\n";
 	}
 
 }
