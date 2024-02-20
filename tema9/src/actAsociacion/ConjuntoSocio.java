@@ -19,7 +19,7 @@ public class ConjuntoSocio {
 					tabla[j] = tabla[j + 1];
 				}
 				tabla = Arrays.copyOf(tabla, tabla.length - 1);
-				return;
+			
 			}
 		}
 		System.out.println("Socio con ID " + ID + " no encontrado.");
