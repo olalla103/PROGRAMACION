@@ -1,16 +1,23 @@
 package biblioteca;
 
-public class LibroORevista {
-	Integer codigo, titulo, anioPublicacion;
+public class Publicacion implements Comparable<Object> {
+	static Integer numTotalPublicacion = 0;
+	Integer codigo, anioPublicacion;
+	String titulo;
 
-	public LibroORevista(Integer codigo, Integer titulo, Integer anioPublicacion) {
+	public Publicacion(Integer codigo, String titulo, Integer anioPublicacion) {
 		super();
+		numTotalPublicacion++;
 		this.codigo = codigo;
 		this.titulo = titulo;
 		this.anioPublicacion = anioPublicacion;
 	}
 
 	// GETTERS AND SETTERS
+	public Integer getNumPublicacion() {
+		return numTotalPublicacion;
+	}
+
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -19,11 +26,11 @@ public class LibroORevista {
 		this.codigo = codigo;
 	}
 
-	public Integer getTitulo() {
+	public String getTitulo() {
 		return titulo;
 	}
 
-	public void setTitulo(Integer titulo) {
+	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
@@ -38,6 +45,11 @@ public class LibroORevista {
 	@Override
 	public String toString() {
 		return "Código: " + codigo + ", título: " + titulo + ", Año de Publicación: " + anioPublicacion + " ";
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		return this.getCodigo() - ((Publicacion) o).getCodigo();
 	}
 
 }

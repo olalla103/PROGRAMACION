@@ -1,11 +1,13 @@
 package biblioteca;
 
-public class Libro extends LibroORevista implements Prestable {
+public class Libro extends Publicacion implements Prestable {
 	Boolean prestado;
+	String autor;
 
-	public Libro(Integer codigo, Integer titulo, Integer anioPublicacion) {
+	public Libro(Integer codigo, String titulo, Integer anioPublicacion, String autor) {
 		super(codigo, titulo, anioPublicacion);
 		this.prestado = false;
+		this.autor = autor;
 	}
 
 	// GETTERS AND SETTERS
@@ -17,9 +19,12 @@ public class Libro extends LibroORevista implements Prestable {
 		this.prestado = prestado;
 	}
 
-	@Override
-	public String toString() {
-		return "Libro: " + super.toString() + " Prestado: " + prestado;
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 
 	@Override
@@ -50,6 +55,11 @@ public class Libro extends LibroORevista implements Prestable {
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Libro: " + super.toString() + " Prestado: " + prestado;
 	}
 
 }

@@ -1,9 +1,9 @@
 package biblioteca;
 
-public class Revista extends LibroORevista {
+public class Revista extends Publicacion {
 	Integer numero;
 
-	public Revista(Integer codigo, Integer titulo, Integer anioPublicacion, Integer numero) {
+	public Revista(Integer codigo, String titulo, Integer anioPublicacion, Integer numero) {
 		super(codigo, titulo, anioPublicacion);
 		this.numero = numero;
 	}
