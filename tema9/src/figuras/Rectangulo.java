@@ -1,9 +1,8 @@
 package figuras;
 
-public class Rectangulo extends FiguraGeometrica {
+public class Rectangulo extends FiguraGeometrica implements Imprimible, ComparaArea {
 	Integer base, altura;
 
-	
 	public Rectangulo(Integer base, Integer altura) {
 		this.base = base;
 		this.altura = altura;
@@ -26,6 +25,18 @@ public class Rectangulo extends FiguraGeometrica {
 	public Integer comparArea(FiguraGeometrica f1, FiguraGeometrica f2) {
 		// TODO Auto-generated method stub
 		return (int) (f1.calcularArea() - f2.calcularArea());
+
+	}
+
+	@Override
+	public String getColor() {
+		// TODO Auto-generated method stub
+		return color;
+	}
+
+	@Override
+	public void setColor(String color) {
+		this.color = color;
 
 	}
 

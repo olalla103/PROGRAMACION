@@ -1,9 +1,7 @@
 package figuras;
 
-public class Triangulo extends FiguraGeometrica {
+public class Triangulo extends FiguraGeometrica implements Imprimible, ComparaArea {
 	Double base, altura;
-	
-	
 
 	public Triangulo(Double base, Double altura) {
 		this.base = base;
@@ -28,6 +26,18 @@ public class Triangulo extends FiguraGeometrica {
 	public Integer comparArea(FiguraGeometrica f1, FiguraGeometrica f2) {
 		// TODO Auto-generated method stub
 		return (int) (f1.calcularArea() - f2.calcularArea());
+
+	}
+
+	@Override
+	public String getColor() {
+		// TODO Auto-generated method stub
+		return color;
+	}
+
+	@Override
+	public void setColor(String color) {
+		this.color = color;
 
 	}
 

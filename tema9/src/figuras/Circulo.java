@@ -1,8 +1,7 @@
 package figuras;
 
-public class Circulo extends FiguraGeometrica {
+public class Circulo extends FiguraGeometrica implements Imprimible, ComparaArea {
 	Double radio;
-	
 
 	public Circulo(Double radio) {
 		this.radio = radio;
@@ -27,6 +26,18 @@ public class Circulo extends FiguraGeometrica {
 	public Integer comparArea(FiguraGeometrica f1, FiguraGeometrica f2) {
 		// TODO Auto-generated method stub
 		return (int) (f1.calcularArea() - f2.calcularArea());
+
+	}
+
+	@Override
+	public String getColor() {
+		// TODO Auto-generated method stub
+		return color;
+	}
+
+	@Override
+	public void setColor(String color) {
+		this.color = color;
 
 	}
 
