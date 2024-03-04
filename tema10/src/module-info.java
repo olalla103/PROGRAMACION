@@ -4,5 +4,5 @@
 /**
  * 
  */
-module putas {
+module tema10 {
 }
