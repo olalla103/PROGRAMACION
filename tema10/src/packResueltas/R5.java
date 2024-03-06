@@ -10,20 +10,19 @@ public class R5 {
 	public static void main(String[] args) {
 		// VARIABLES
 		Scanner sc;
-		BufferedReader lee = null;
 		String linea;
 		double n = 0, suma = 0;
 
-		try {
-			lee = new BufferedReader(new FileReader("Resuelta5.txt"));
-			linea = lee.readLine();
+		try (BufferedReader lee = new BufferedReader(new FileReader("Resuelta5.txt"))) {
+			linea = lee.readLine(); // lectura de la línea
 			while (linea != null) {
 				sc = new Scanner(linea);
+				// manipulación de los datos
 				if (sc.hasNextDouble()) {
 					n = sc.nextDouble();
 					suma += n;
 				}
-				linea = lee.readLine();
+				linea = lee.readLine(); // lectura de la línea
 			}
 			System.out.println(suma);
 		} catch (IOException e) {

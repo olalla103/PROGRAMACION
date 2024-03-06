@@ -9,15 +9,14 @@ public class R6 {
 
 	public static void main(String[] args) {
 		// VARIABLES
-		BufferedReader lee = null;
 		String linea = "";
 		int n = 0, suma = 0, cont = 0;
 		double media;
 		Scanner sc = null;
-		try {
-			lee = new BufferedReader(new FileReader("Enteros.txt"));
+		
+		try (BufferedReader lee = new BufferedReader(new FileReader("Enteros.txt"))) {
 			linea = lee.readLine();
-			while (linea != null) {
+			while (linea != null) {	
 				sc = new Scanner(linea);
 				while (sc.hasNextInt()) { // mientras que haya un int, se hace
 					n = sc.nextInt();
@@ -32,14 +31,6 @@ public class R6 {
 			sc.close();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-		} finally {
-			if (linea != null) {
-				try {
-					lee.close();
-				} catch (Exception e2) {
-					System.out.println(e2.getMessage());
-				}
-			}
 		}
 
 	}
