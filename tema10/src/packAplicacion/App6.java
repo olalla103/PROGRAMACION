@@ -22,20 +22,26 @@ public class App6 {
 				linea = lee.readLine();
 				while (linea != null) {
 					nombres += linea;
-
 					linea = lee.readLine();
 				}
+
 				palabras = nombres.split(",");
 				for (int i = 0; i < palabras.length; i++) {
-					if (revisa.equals(palabras[i])) {
+					if (revisa.equalsIgnoreCase(palabras[i])) {
 						flag = false;
 					}
 				}
+				nombres = "";
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
+
 			if (!flag || revisa.equals("-1")) {
-				System.out.println("Ese nombre ya se encuentra en el archivo.");
+				if (revisa.equals("-1")) {
+					System.out.println("Hasta luego!");
+				} else {
+					System.out.println("Ese nombre ya se encuentra en el archivo.");
+				}
 			} else {
 				try (BufferedWriter escribe = new BufferedWriter(new FileWriter("firmas.txt", true))) {
 					escribe.write(revisa + ",");
