@@ -9,7 +9,7 @@ public class App7 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in), intros;
-		String linea = "", palabra;
+		String linea = "", palabra; 
 		Integer contLineas = 0;
 		boolean flag = false;
 
