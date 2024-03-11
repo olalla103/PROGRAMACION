@@ -14,6 +14,8 @@ public class App6 {
 		String palabras[] = new String[0];
 		boolean flag = true;
 
+		// hacer otra vez
+
 		do {
 			System.out.println("Introduzca el nombre que quiere introducir: ");
 			revisa = sc.next();
@@ -43,8 +45,10 @@ public class App6 {
 					System.out.println("Ese nombre ya se encuentra en el archivo.");
 				}
 			} else {
-				try (BufferedWriter escribe = new BufferedWriter(new FileWriter("firmas.txt", true))) {
-					escribe.write(revisa + ",");
+				try (BufferedWriter escribe = new BufferedWriter(new FileWriter("firmas.txt"))) {
+					escribe.write(revisa);
+					escribe.newLine();
+
 					escribe.flush();
 				} catch (IOException e) {
 					System.out.println(e.getMessage());

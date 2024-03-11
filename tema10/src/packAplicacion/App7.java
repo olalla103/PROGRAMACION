@@ -16,6 +16,7 @@ public class App7 {
 		try (BufferedReader lee = new BufferedReader(new FileReader("pedasodefichero.txt"))) {
 			linea = lee.readLine();
 			intros = new Scanner(linea);
+			
 			while (linea != null || !flag) {
 				System.out.println(linea);
 				if (intros.hasNextLine()) {
