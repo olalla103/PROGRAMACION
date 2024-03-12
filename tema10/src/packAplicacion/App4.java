@@ -33,7 +33,7 @@ public class App4 {
 			palabras = p.split(" ");
 
 			System.out.println("Hay un total de " + contLineas + " líneas y un total de " + contCaracteres
-					+ " caracteres. Hay un total de " + palabras.length + " palabrass");
+					+ " caracteres. Hay un total de " + (palabras.length - 1) + " palabras");
 
 		} catch (IOException e) {
 			System.out.println("No se encuentra el archivo.");
