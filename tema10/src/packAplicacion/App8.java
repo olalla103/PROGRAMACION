@@ -12,10 +12,10 @@ public class App8 {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Introduzca un texto:");
+		System.out.println("Introduzca un texto en una sola línea:");
 		texto = sc.nextLine();
 
-		Arrays.toString(leerEnteros(texto));
+		System.out.println(Arrays.toString(leerEnteros(texto)));
 
 		sc.close();
 	}
@@ -26,7 +26,9 @@ public class App8 {
 
 		while (sc.hasNext()) {
 			if (sc.hasNextInt()) {
-				num += sc.hasNextInt() + " ";
+				num += sc.nextInt() + " ";
+			} else {
+				sc.next(); // Avanzar al siguiente token si no es un entero
 			}
 		}
 		String[] t = num.split(" ");
