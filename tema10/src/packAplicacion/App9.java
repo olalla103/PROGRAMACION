@@ -3,7 +3,6 @@ package packAplicacion;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class App9 {
 
@@ -22,21 +21,16 @@ public class App9 {
 		}
 
 	}
-
-	public static void codificar(String linea) {
-		char[] alfabeto = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-				's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-
-		char[] cifrado = { 'e', 'm', 's', 'r', 'c', 'y', 'j', 'n', 'f', 'x', 'i', 'w', 't', 'a', 'k', 'o', 'z', 'd',
-				'l', 'q', 'v', 'b', 'h', 'u', 'p', 'g' };
-		int i = 0;
-		Scanner leeLinea = new Scanner(linea);
-
-		while (leeLinea.hasNext()) {
-			if (alfabeto[i] == leeLinea.next().charAt(i)) {
-				// me falta escribir en el fichero
-			}
-		}
-	}
-
+	/*
+	 * public static void codificar(String linea) { char[] alfabeto = { 'a', 'b',
+	 * 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+	 * 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+	 * 
+	 * char[] cifrado = { 'e', 'm', 's', 'r', 'c', 'y', 'j', 'n', 'f', 'x', 'i',
+	 * 'w', 't', 'a', 'k', 'o', 'z', 'd', 'l', 'q', 'v', 'b', 'h', 'u', 'p', 'g' };
+	 * int i = 0; Scanner leeLinea = new Scanner(linea);
+	 * 
+	 * while (leeLinea.hasNext()) { if (alfabeto[i] == leeLinea.next().charAt(i)) {
+	 * // me falta escribir en el fichero } } }
+	 */
 }

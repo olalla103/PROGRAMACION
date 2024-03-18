@@ -1,0 +1,4 @@
+Nombre					Edad	Peso	Estatura
+Juan Pedro Pérez Gómez	25		70.5	1.8
+Ana Ruiz del Val		23		60		1.75
+Iñigo López Navarro 	18		80		1.85	
