@@ -7,24 +7,25 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Clase2 {
-	// NO ESCRIBE EN LOS FICHEROS, REVISAR
 	public static void main(String[] args) {
 		// variables
-		Character letra;
+		char letra;
+		int n;
 		String letrasMayusculas = "", letrasMinusculas = "";
 
 		// leemos fichero
 		try (BufferedReader lee = new BufferedReader(new FileReader("clase2.txt"));
 				BufferedWriter escribeMinus = new BufferedWriter(new FileWriter("minusculas.txt"));
 				BufferedWriter escribeMayus = new BufferedWriter(new FileWriter("mayusculas.txt"))) {
-			letra = (char) lee.read();
-			while (letra != null) {
+			n = lee.read();
+			while (n != -1) {
+				letra = (char) n; // si pasamos directamente a char, se hace un bucle infinito
 				if (Character.isUpperCase(letra)) {
 					letrasMayusculas += letra + " ";
 				} else if (Character.isLowerCase(letra)) {
 					letrasMinusculas += letra + " ";
 				}
-				letra = (char) lee.read();
+				n = lee.read();
 			}
 
 			// escribe fichero
