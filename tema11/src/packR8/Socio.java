@@ -1,6 +1,9 @@
 package packR8;
 
-public class Socio {
+import java.io.Serializable;
+
+public class Socio implements Serializable {
+	private static final long serialVersionUID = 1L;
 	String dni, nombre;
 
 	public Socio(String dni, String nombre) {
@@ -22,6 +25,11 @@ public class Socio {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	@Override
+	public String toString() {
+		return "Socio [dni=" + dni + ", nombre=" + nombre + "]";
 	}
 
 }
