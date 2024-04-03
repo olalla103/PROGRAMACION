@@ -16,6 +16,7 @@ public class App6 {
 		String nombre;
 		String nombres[] = new String[0];
 
+		// leemos para introducir en la tabla
 		try (ObjectInputStream lee = new ObjectInputStream(new FileInputStream("nombres.dat"))) {
 			nombres = (String[]) lee.readObject();
 
@@ -27,6 +28,7 @@ public class App6 {
 		}
 		System.out.println(Arrays.toString(nombres));
 
+		// pedimos nombres hasta que se introduzca fin
 		System.out.println("Introduzca un nombre:");
 		nombre = sc.next();
 		while (!nombre.equalsIgnoreCase("fin")) {

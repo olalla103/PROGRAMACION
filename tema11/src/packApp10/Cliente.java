@@ -3,9 +3,6 @@ package packApp10;
 import java.io.Serializable;
 
 public class Cliente implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	static Integer id;
 	Integer contId = 0;
@@ -44,7 +41,7 @@ public class Cliente implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cliente [nombre=" + nombre + ", telf=" + telf + "]";
+		return "Cliente [ID= " + id + ", nombre=" + nombre + ", telf=" + telf + "]";
 	}
 
 }

@@ -1,7 +1,9 @@
 package packApp;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
@@ -30,13 +32,16 @@ public class App7 {
 		}
 
 		try (ObjectInputStream lee = new ObjectInputStream(new FileInputStream("aplicacion7.dat"))) {
-			while(true) {
-				
+			while (true) {
 				linea += (String) lee.readObject() + "\n";
 			}
 
-		} catch (Exception e) {
+		} catch (EOFException e) {
+			System.out.println("Fin de fichero.");
+		} catch (IOException e) {
 			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException e) {
+			System.out.println("No se encuentra la clase.");
 		}
 		System.out.println(linea);
 
