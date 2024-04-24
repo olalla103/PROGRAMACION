@@ -11,14 +11,14 @@ public class Ppal {
         String dni, nombre, apellidos, direccion;
         Alumno alumno;
         String nombreA1, nombreA2, nombreA3;
-        Integer[] notas1 = new Integer[3];
-        Integer[] notas2 = new Integer[3];
-        Integer[] notas3 = new Integer[3];
+        Double[] notas1 = new Double[3];
+        Double[] notas2 = new Double[3];
+        Double[] notas3 = new Double[3];
         Asignatura asignatura1, asignatura2, asignatura3;
         // tabla para incluir en el alumno
         Asignatura[] asignaturas = new Asignatura[3];
         // contadores notaMedia
-        int contA1 = 0, contA2 = 0, contA3 = 0;
+        Double contA1 = 0.0, contA2 = 0.0, contA3 = 0.0;
 
         try (BufferedReader lee = new BufferedReader(new FileReader("src/act2Moodle.txt"))) {
             linea = lee.readLine();
@@ -31,24 +31,24 @@ public class Ppal {
 
                 // asignaturas
                 nombreA1 = tabla[4];
-                notas1[0] = Integer.valueOf(tabla[5]);
-                notas1[1] = Integer.valueOf(tabla[6]);
-                notas1[2] = Integer.valueOf(tabla[7]);
-                contA1 = notas1[0] + notas1[1] + notas1[2];
+                notas1[0] = Double.valueOf(tabla[5]);
+                notas1[1] = Double.valueOf(tabla[6]);
+                notas1[2] = Double.valueOf(tabla[7]);
+                contA1 = (notas1[0] + notas1[1] + notas1[2]) / 3;
                 asignatura1 = new Asignatura(nombreA1, notas1);
 
                 nombreA2 = tabla[8];
-                notas2[0] = Integer.valueOf(tabla[9]);
-                notas2[1] = Integer.valueOf(tabla[10]);
-                notas2[2] = Integer.valueOf(tabla[11]);
-                contA2 = notas2[0] + notas2[1] + notas2[2];
+                notas2[0] = Double.valueOf(tabla[9]);
+                notas2[1] = Double.valueOf(tabla[10]);
+                notas2[2] = Double.valueOf(tabla[11]);
+                contA2 = (notas2[0] + notas2[1] + notas2[2]) / 3;
                 asignatura2 = new Asignatura(nombreA2, notas2);
 
                 nombreA3 = tabla[12];
-                notas3[0] = Integer.valueOf(tabla[13]);
-                notas3[1] = Integer.valueOf(tabla[14]);
-                notas3[2] = Integer.valueOf(tabla[15]);
-                contA3 = notas3[0] + notas3[1] + notas3[2];
+                notas3[0] = Double.valueOf(tabla[13]);
+                notas3[1] = Double.valueOf(tabla[14]);
+                notas3[2] = Double.valueOf(tabla[15]);
+                contA3 = (notas3[0] + notas3[1] + notas3[2]) / 3;
                 asignatura3 = new Asignatura(nombreA3, notas3);
 
                 // pongo asignaturas para meterlas en el alumno
@@ -61,16 +61,16 @@ public class Ppal {
                 System.out.println("DNI\tNOMBRE");
                 System.out.println(alumno.getDni() + "\t" + alumno.getNombre());
                 System.out.println("NOMBRE ASIGNATURA\tNOTA MEDIA");
-                System.out.println(alumno.getAsignaturas()[0].getNombre() + "\t" + contA1 / 3);
-                System.out.println(alumno.getAsignaturas()[1].getNombre() + "\t" + contA2 / 3);
-                System.out.println(alumno.getAsignaturas()[2].getNombre() + "\t" + contA3 / 3);
-                double notaMediaFinal = (double) (contA1 + contA2 + contA3) / 3;
+                System.out.println(alumno.getAsignaturas()[0].getNombre() + "\t" + contA1);
+                System.out.println(alumno.getAsignaturas()[1].getNombre() + "\t" + contA2);
+                System.out.println(alumno.getAsignaturas()[2].getNombre() + "\t" + contA3);
+                double notaMediaFinal = (contA1 + contA2 + contA3) / 3;
                 System.out.println("MEDIA DEL CURSO:\t" + notaMediaFinal +
                         "\n------------------------------------------------------\n");
 
-                contA1 = 0;
-                contA2 = 0;
-                contA3 = 0;
+                contA1 = 0.0;
+                contA2 = 0.0;
+                contA3 = 0.0;
                 linea = lee.readLine();
             }
         } catch (IOException e) {

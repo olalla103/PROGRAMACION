@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Asignatura {
     String nombre;
-    Integer[] notas = new Integer[3];
+    Double[] notas = new Double[3];
 
-    public Asignatura(String nombre, Integer[] notas) {
+    public Asignatura(String nombre, Double[] notas) {
         this.nombre = nombre;
         this.notas = notas;
     }
@@ -19,11 +19,11 @@ public class Asignatura {
         this.nombre = nombre;
     }
 
-    public Integer[] getNotas() {
+    public Double[] getNotas() {
         return notas;
     }
 
-    public void setNotas(Integer[] notas) {
+    public void setNotas(Double[] notas) {
         this.notas = notas;
     }
 
