@@ -1,0 +1,3 @@
+78104491X,Olalla,López Navarro-Casas,Jose Gallego Góngora 17,Programación,6,6,5,Base de datos,7,6,5,Sistemas,4,4,5
+11122233A,Daniel,Gómez Benítez,El ronquillo 20A,Base de datos,8,6,4,Programación,6,5,5,Sistemas,4,4,5
+22233344B,Franciso Javier,Santana Montes,Relampaguito 5,Sistemas,4,4,5,Programación,5,7,7,Base de datos,6,5,5
