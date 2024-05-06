@@ -20,7 +20,6 @@ public class P1<E> {
             tablaFinal[t1.length + i] = t2[i];
         }
 
-
         return tablaFinal;
     }
 }
