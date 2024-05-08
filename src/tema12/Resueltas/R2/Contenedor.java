@@ -2,7 +2,7 @@ package tema12.Resueltas.R2;
 
 import java.util.Arrays;
 
-public class Contenedor<T extends Comparable<T>> implements Pila {
+public class Contenedor<T extends Comparable<T>> implements Pila, Cola {
     T[] tabla;
 
     public Contenedor(T[] tabla) {
@@ -39,20 +39,13 @@ public class Contenedor<T extends Comparable<T>> implements Pila {
         return nuevoArray;
     }
 
-    @Override
-    public String toString() {
-        return "Contenedor{" +
-                "tabla=" + Arrays.toString(tabla) +
-                '}';
-    }
-
     // metodos pila
 
+
     @Override
-    public void insertarFinal(Comparable nuevo) {
+    public void apilar(Object nuevo) {
         tabla = Arrays.copyOf(tabla, tabla.length + 1);
         tabla[tabla.length - 1] = (T) nuevo;
-
     }
 
     @Override
@@ -71,5 +64,25 @@ public class Contenedor<T extends Comparable<T>> implements Pila {
         System.arraycopy(nuevoArray, 0, tabla, 0, nuevoArray.length);
 
         return primerElemento;
+    }
+
+    @Override
+    public void encolar(Object objeto) {
+        tabla = Arrays.copyOf(tabla, tabla.length + 1);
+        tabla[tabla.length - 1] = (T) objeto;
+    }
+
+    @Override
+    public void desencolar() {
+        T primerElemento = tabla[0];
+        T[] nuevoArray = Arrays.copyOfRange(tabla, 1, tabla.length);
+        System.arraycopy(nuevoArray, 0, tabla, 0, nuevoArray.length);
+    }
+
+    @Override
+    public String toString() {
+        return "Contenedor{" +
+                "tabla=" + Arrays.toString(tabla) +
+                '}';
     }
 }
