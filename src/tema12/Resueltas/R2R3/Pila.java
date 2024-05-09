@@ -1,4 +1,4 @@
-package tema12.Resueltas.R2;
+package tema12.Resueltas.R2R3;
 
 public interface Pila<T> {
 
