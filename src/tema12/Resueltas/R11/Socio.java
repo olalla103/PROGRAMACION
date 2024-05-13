@@ -1,10 +1,11 @@
 package tema12.Resueltas.R11;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class Socio implements Comparable<Socio> {
+public class Socio implements Serializable,  Comparable<Socio> {
     String dni, nombre, fechAlta;
     LocalDate alta;
 
@@ -33,7 +34,7 @@ public class Socio implements Comparable<Socio> {
     // GETTERS AND SETTERS
     //TIEMPO QUE LLEVA SIENDO SOCIO
     public Integer getAntiguedad() {
-        return (int) ChronoUnit.YEARS.between(LocalDate.now(), alta);
+        return (int) ChronoUnit.YEARS.between(alta, LocalDate.now());
     }
 
 
@@ -67,5 +68,13 @@ public class Socio implements Comparable<Socio> {
 
     public void setAlta(LocalDate alta) {
         this.alta = alta;
+    }
+
+    @Override
+    public String toString() {
+        return "Socio{" +
+                "dni: " + dni + "\t" +
+                " nombre: " + nombre + "\t" +
+                " antigüedad: " + getAntiguedad();
     }
 }

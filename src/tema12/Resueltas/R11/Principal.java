@@ -1,15 +1,10 @@
 package tema12.Resueltas.R11;
 
-import com.sun.source.tree.Tree;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.*;
 
 public class Principal {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // CREACIÓN DE VARIABLES
         Scanner sc = new Scanner(System.in);
         Set<Socio> conjuntoSocios = new TreeSet<>();
@@ -19,14 +14,16 @@ public class Principal {
 
         // LECTURA FICHERO
         try (ObjectInputStream leeFichero = new ObjectInputStream(new FileInputStream("socios.dat"))) {
-            conjuntoSocios = (TreeSet<Socio>) leeFichero.readObject();
+            conjuntoSocios.addAll((Set<Socio>) leeFichero.readObject());
         } catch (IOException e) {
             System.out.println("Lista de socios vacía.");
 
         } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            System.out.println(e.getMessage());
+
         }
 
+        // MENÚ
         do {
             System.out.println("1. Alta\n2. Baja\n3. Modificación\n4. Listado por DNI\n5. Listado por antigüedad\n6. Salir");
             System.out.println("Introduzca qué quiere realizar: ");
@@ -78,5 +75,14 @@ public class Principal {
 
             }
         } while (op != 6);
+
+        // ESCRIBIR EN FICHERO BINARIO
+        try (ObjectOutputStream escribe = new ObjectOutputStream(new FileOutputStream("socios.dat"))) {
+            escribe.writeObject(conjuntoSocios);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        sc.close();
     }
 }
