@@ -18,7 +18,6 @@ public class R12 {
         con2.add(7);
         con2.add(8);
 
-
         System.out.println(union(con1, con2));
         System.out.println(interseccion(con1, con2));
     }
