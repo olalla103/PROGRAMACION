@@ -15,6 +15,17 @@ public class Academico implements Comparable<Academico> {
         this.fechaIngreso = alta.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
+    // ORDENACIÓN NATURAL
+    @Override
+    public int compareTo(Academico o) {
+        return this.getNombre().compareTo(o.getNombre());
+    }
+
+    // GETTERS AND SETTERS
+    public Integer getAnioIngreso() {
+        return this.getAlta().getYear();
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -40,7 +51,11 @@ public class Academico implements Comparable<Academico> {
     }
 
     @Override
-    public int compareTo(Academico o) {
-        return this.getNombre().compareTo(o.getNombre());
+    public String toString() {
+        return "Academico{" +
+                "nombre='" + nombre + '\'' +
+                ", fechaIngreso='" + fechaIngreso + '\'' +
+                ", alta=" + alta +
+                '}';
     }
 }

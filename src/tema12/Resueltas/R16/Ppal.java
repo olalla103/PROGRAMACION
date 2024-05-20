@@ -1,7 +1,5 @@
 package tema12.Resueltas.R16;
 
-import com.sun.source.tree.Tree;
-
 import java.util.*;
 
 public class Ppal {
@@ -24,15 +22,21 @@ public class Ppal {
             nuevoAcademico(mapa, academico, letra);
         }
 
-
-        // LISTADO SIN LETRA
+        // SIN LETRA
+        // ORDENADO POR NOMBRE
         Collection<Academico> sinLetra = mapa.values();
         List<Academico> listaSinLetra = new ArrayList<>(sinLetra);
         Collections.sort(listaSinLetra);
         System.out.println("Con nombre sin letra: \n" + listaSinLetra);
 
-        // LISTADO POR ORDEN DE NOMBRE
-        
+        // ORDENADO POR AÑO DE INGRESO
+        List<Academico> lA = new ArrayList<>(sinLetra);
+        lA.sort(new ComparaAnioIngreso());
+        System.out.println("Listado por año de ingreso:  +" + lA);
+
+        // CON LETRA
+        // LISTADO POR ORDEN DE LETRA
+
 
     }
 

@@ -6,6 +6,10 @@ import java.util.Comparator;
 public class ComparaAnioIngreso implements Comparator<Academico> {
     @Override
     public int compare(Academico o1, Academico o2) {
-        return o1.getAlta().compareTo(o2.getAlta());
+        if (o1.getAnioIngreso().compareTo(o2.getAnioIngreso()) < 0) {
+            return o1.getAnioIngreso().compareTo(o2.getAnioIngreso());
+        } else {
+            return o1.getAlta().getMonthValue() - o2.getAlta().getMonthValue();
+        }
     }
 }
