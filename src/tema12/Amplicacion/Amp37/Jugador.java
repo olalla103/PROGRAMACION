@@ -54,4 +54,15 @@ public class Jugador {
     public void setPosicion(Posiciones posicion) {
         this.posicion = posicion;
     }
+
+    @Override
+    public String toString() {
+        return "Jugador{" +
+                "dorsal=" + dorsal +
+                ", dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", posicion=" + posicion +
+                ", estatura=" + estatura +
+                '}';
+    }
 }
