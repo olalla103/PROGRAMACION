@@ -11,7 +11,7 @@ public class Ppal {
         char letra;
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             System.out.println("Introduzca el nombre:");
             nombre = sc.next();
             System.out.println("Introduzca su fecha de ingreso:");
@@ -36,8 +36,7 @@ public class Ppal {
 
         // CON LETRA
         // LISTADO POR ORDEN DE LETRA
-
-
+        System.out.println(mapa);
     }
 
     public static boolean nuevoAcademico(Map<Character, Academico> academia, Academico nuevo, Character letra) {
