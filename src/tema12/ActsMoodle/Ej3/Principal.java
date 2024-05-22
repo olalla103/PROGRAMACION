@@ -52,17 +52,19 @@ public class Principal {
         // añado al treeSet y al map
         setEstudiantes.add(new Estudiante(nombre, edad, notasProm));
         mapa.put(nombre, new Estudiante(nombre, edad, notasProm));
+        System.out.println("Lista: " + setEstudiantes + "\nMapa: " + mapa);
 
         // Eliminar estudiante
         System.out.println("Introduzca el nombre del estudiante que quieres eliminar:");
         nombre = sc.next();
         mapa.remove(nombre);
         setEstudiantes.remove(new Estudiante(nombre));
+        System.out.println("Lista: " + setEstudiantes + "\nMapa: " + mapa);
 
         // vuelvo a escribir en el fichero
-        // voy a pasar el set a un array
-        try (ObjectInputStream escribe = new ObjectInputStream(new FileInputStream("estudiantes.dat"))) {
-
+        try (ObjectOutputStream escribe = new ObjectOutputStream(new FileOutputStream("estudiantes.dat"))) {
+            escribe.writeObject(setEstudiantes);
+            escribe.writeObject(mapa);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
